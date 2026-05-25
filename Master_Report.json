@@ -1150,6 +1150,18 @@
     {
       "date": "2026-05-25",
       "change": "Added GitHub Actions build-only workflow (no rsync). Created build.py and .gitattributes."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Initialized git repository locally, added .gitignore, created initial commit."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Pushed to GitHub: remote set to https://github.com/vswebsitedesign-ctrl/site_AHC-recovery.git. GitHub Actions will now build on push."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Merged site_AHC into this site. Transferred 1 unique pages (slugs: ['']). site_AHC directory will be removed."
     }
   ],
   "known_issues": {
@@ -1190,13 +1202,16 @@
     "last_build": "2026-05-25",
     "build_result": "SUCCESS",
     "live_crawl": "Crawled 2026-05-25: 0 added, 7 updated from https://cornwallauctionhouseclearance.co.uk",
-    "all_sites_built": true
+    "all_sites_built": true,
+    "merged_from": "site_AHC"
   },
   "deployment_workflow": {
     "workflow_status": "not set up",
     "github_secret": "SSH_PRIVATE_KEY (required when workflow is created)",
     "notes": "Deployment to Plesk not configured; artifact uploads build/",
-    "github_actions_status": "build-only workflow added (no Plesk)",
-    "workflow_file": ".github/workflows/deploy.yml"
+    "github_actions_status": "build-only workflow \u2013 ready, runs on push",
+    "workflow_file": ".github/workflows/deploy.yml",
+    "git_initialized": true,
+    "git_remote": "https://github.com/vswebsitedesign-ctrl/site_AHC-recovery.git"
   }
 }
