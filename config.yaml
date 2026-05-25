@@ -1,0 +1,29 @@
+baseurl: ''
+description: Professional house, shed, unit and probate clearances across all of Cornwall.
+  Led by William. Free quotes, fully insured and licensed.
+email: info@ahchouseclearances.co.uk
+exclude:
+- generate-locations.sh
+- data/
+- site-structure.txt
+- site-structure-detailed.txt
+- site-structure-tree.txt
+- Gemfile
+- Gemfile.lock
+permalink: pretty
+plugins:
+- jekyll-feed
+- jekyll-sitemap
+primary_phone: 07931 476 744
+sass:
+  quiet_deps: true
+  silence_deprecations:
+  - import
+  - global-builtin
+  - color-functions
+  - mixed-decls
+  - slash-div
+  style: compressed
+site_name: AHC-recovery
+title: AHC House Clearances
+url: https://cornwallauctionhouseclearance.co.uk
