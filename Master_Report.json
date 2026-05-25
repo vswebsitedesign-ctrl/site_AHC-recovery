@@ -1218,6 +1218,18 @@
     {
       "date": "2026-05-25",
       "change": "Configured GitHub Actions rsync deploy to Plesk. Server: 217.154.33.12. Deploy user: root. Path: /var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/. SSH key pair generated: ~/.ssh/ahc_deploy_key. Public key added to server authorized_keys. Private key stored as GitHub secret SSH_PRIVATE_KEY. deploy.yml updated from build-only to build-and-deploy. index copy fix (cp build/index/index.html build/index.html) added to workflow. Deployment now triggers automatically on push to main."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Fixed build.py: 404.html now written as file not directory. Sitemap.xml generated at build time with 996 URLs. Index copy (build/index/index.html to build/index.html) now handled inside build.py automatically."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Created send.php in project root \u2014 contact form handler. Posts to info@ahchouseclearances.co.uk. Rsynced to Plesk httpdocs/ on deploy."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Added assets/ and theme/base.html to git \u2014 previously missing from repo so GitHub Actions runner had no images or cookie banner to deploy. Cookie banner now live on deployed site."
     }
   ],
   "known_issues": {
@@ -1238,7 +1250,12 @@
     "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags.",
     "homepage_copy_mismatch": "Engine builds index slug as build/index/index.html \u2014 must be copied to build/index.html after every build. Now handled automatically in deploy.yml via: cp build/index/index.html build/index.html",
     "deploy_rsync": "rsync deploys build/ to root@217.154.33.12:/var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/ \u2014 SSH key stored as SSH_PRIVATE_KEY in GitHub secrets. Public key must be present in root@217.154.33.12 authorized_keys.",
-    "regex_dotall_danger": "Never use re.DOTALL with greedy .* when matching HTML divs in pages.json \u2014 it will consume multiple sibling divs. Always use exact string replace or a div-depth counter instead."
+    "regex_dotall_danger": "Never use re.DOTALL with greedy .* when matching HTML divs in pages.json \u2014 it will consume multiple sibling divs. Always use exact string replace or a div-depth counter instead.",
+    "404_as_directory": "build.py was building 404.html as a directory (build/404.html/index.html). Fixed in build.py \u2014 slug '404.html' now written directly as build/404.html file.",
+    "sitemap_missing": "Sitemap was not generated. Fixed in build.py \u2014 sitemap.xml now generated at build time with all page URLs. Utility slugs (footer, header, call-button, cookie-consent) excluded.",
+    "send_php_missing": "Contact form posts to /send.php which did not exist. send.php created in project root \u2014 rsynced to Plesk httpdocs/ on deploy. Sends to info@ahchouseclearances.co.uk.",
+    "assets_not_in_git": "assets/ and theme/base.html were not committed to git \u2014 GitHub Actions runner had no images or cookie banner to deploy. Fixed: git add assets/ theme/base.html.",
+    "index_copy_in_build": "build.py now handles index copy internally \u2014 cp build/index/index.html build/index.html no longer needed manually or in deploy.yml."
   },
   "assets": {
     "images_migrated": true,
@@ -1280,6 +1297,9 @@
     "git_remote": "https://github.com/vswebsitedesign-ctrl/site_AHC-recovery.git",
     "github_actions_status": "build and deploy workflow \u2014 runs on push to main",
     "note": "Push to main triggers GitHub Actions \u2014 builds via build.py, copies build/index/index.html to build/index.html, rsyncs build/ to Plesk. Never append serve command to build command.",
-    "node_warning": "Node.js 20 deprecation warning in Actions \u2014 non-critical until September 2026"
+    "node_warning": "Node.js 20 deprecation warning in Actions \u2014 non-critical until September 2026",
+    "send_php": "send.php in project root \u2014 rsynced to httpdocs/ on deploy. Handles contact form POST. Sends mail to info@ahchouseclearances.co.uk.",
+    "sitemap": "sitemap.xml generated at build time by build.py. Written to build/sitemap.xml. Deployed via rsync.",
+    "404": "404.html written as a file directly at build/404.html by build.py. Plesk serves it on 404 responses."
   }
 }
