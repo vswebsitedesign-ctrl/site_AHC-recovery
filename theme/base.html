@@ -2,15 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <meta name="description" content=""><meta name="description" content="">
-  <link rel="stylesheet" href="">
-  <link rel="canonical" href="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cornwall Auction Clearances</title>
+  <meta name="description" content="Professional house, shed & unit clearances across Cornwall. Led by William. Free quotes, auction expertise.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
 <body>
 
-<main>{{ content }}</main>
+<header style="position: sticky; top: 0; z-index: 1000; background: #003366; color: white; padding: 15px 5%; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border-bottom: 4px solid #D4AF37;">
+  <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 15px;">
+    <a href="/" aria-label="Cornwall Auction House Clearances – Home" style="font-size: 1.8rem; font-weight: 900; color: #D4AF37; text-decoration: none;">
+      Cornwall Auction House Clearances
+    </div>
+    <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center;">
+      <span style="font-size: 1.3rem; font-weight: 700; color: #ffffff;">+15 Years Experience</span>
+      <a href="/contact/" style="background: #D4AF37; color: #003366; padding: 12px 30px; border-radius: 50px; font-size: 1.3rem; font-weight: 900; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+        Free Quote
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+{{ content }}
+</main>
+
+<footer style="background:#000000;color:#ffffff;padding:60px 10% 40px;text-align:center;border-top:6px solid #D4AF37;margin-top:80px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h3 style="font-size:1.8rem;font-weight:900;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;color:#D4AF37;">
+      Cornwall Auction Clearances by William
+    </h3>
+    <p style="font-size:1.1rem;line-height:1.6;margin-bottom:30px;max-width:800px;margin-left:auto;margin-right:auto;opacity:0.9;">
+      Expert House, Shed, Unit, Shop, Loft, Hotel &amp; Rubbish Removal Clearances Across Cornwall – Led by William<br>
+      Professional, discreet services combining fast removal with auction expertise.
+    </p>
+    <div style="margin-bottom:30px;">
+      <p style="font-size:1rem;opacity:0.8;margin-bottom:8px;letter-spacing:0.5px;text-transform:uppercase;font-weight:700;">Our Services</p>
+      <p style="font-size:1.05rem;opacity:0.85;line-height:1.8;">
+        Cornwall Auction House Clearance &nbsp;·&nbsp; Cornwall Auction Shed Clearance &nbsp;·&nbsp; Cornwall Auction Unit Clearance &nbsp;·&nbsp; Cornwall Auction Shop Clearance &nbsp;·&nbsp; Cornwall Auction Loft Clearance &nbsp;·&nbsp; Cornwall Auction Hotel Clearance &nbsp;·&nbsp; Cornwall Auction Rubbish Removal
+      </p>
+      <a href="/service/" style="display:inline-block;margin-top:12px;color:#D4AF37;text-decoration:underline;font-size:1.05rem;font-weight:700;">View All Services →</a>
+    </div>
+    <div style="margin-bottom:40px;">
+      <p style="font-size:1.3rem;font-weight:600;margin-bottom:10px;">Call William Today</p>
+      <a href="tel:07990789598" style="font-size:1.6rem;font-weight:900;color:#D4AF37;text-decoration:none;display:inline-block;margin-bottom:10px;">
+        07990789598
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin-bottom:30px;font-size:1.1rem;">
+      <a href="/" style="color:#ffffff;text-decoration:none;">Home</a>
+      <a href="/about/" style="color:#ffffff;text-decoration:none;">About Us</a>
+      <a href="/contact/" style="color:#ffffff;text-decoration:none;">Contact</a>
+      <a href="/privacy-policy/" style="color:#ffffff;text-decoration:none;">Privacy Policy</a>
+      <a href="/cookie-policy/" style="color:#ffffff;text-decoration:none;">Cookie Policy</a>
+      <a href="/terms-and-conditions/" style="color:#ffffff;text-decoration:none;">Terms &amp; Conditions</a>
+    </div>
+    <p style="font-size:0.95rem;opacity:0.7;margin-top:30px;">
+      © 2026 Cornwall Auction Clearances by William. All rights reserved.<br>
+      Fully insured &amp; licensed • Serving all of Cornwall
+    </p>
+  </div>
+</footer>
+
+
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#003366;color:#fff;padding:18px 5%;z-index:99999;box-shadow:0 -4px 12px rgba(0,0,0,0.3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
+    <p style="margin:0;font-size:0.95rem;line-height:1.6;flex:1 1 300px;">We use cookies to improve your experience. By continuing to use this site you agree to our <a href="/cookie-policy/" style="color:#D4AF37;font-weight:bold;">Cookie Policy</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+        <button onclick="cookieConsent('accepted')" style="background:#D4AF37;color:#003366;border:none;padding:10px 22px;border-radius:6px;font-weight:bold;font-size:0.95rem;cursor:pointer;">Accept</button>
+        <button onclick="cookieConsent('declined')" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);padding:10px 22px;border-radius:6px;font-weight:bold;font-size:0.95rem;cursor:pointer;">Decline</button>
+    </div>
+</div>
+<script>
+(function(){
+    if(!localStorage.getItem('cookie_consent')){
+        document.getElementById('cookie-banner').style.display='flex';
+    }
+})();
+function cookieConsent(val){
+    localStorage.setItem('cookie_consent', val);
+    document.getElementById('cookie-banner').style.display='none';
+}
+</script>
 
 </body>
 </html>

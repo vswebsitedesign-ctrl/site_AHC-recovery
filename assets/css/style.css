@@ -1,0 +1,192 @@
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; line-height:1.6; }
+
+/* Colors */
+:root {
+  --navy: #003366;
+  --gold: #D4AF37;
+  --light: #f4f4f4;
+  --white: #ffffff;
+  --dark: #333;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.7) 70%), url('/assets/img/Cornwall%20Auction%20House%20Clearance.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 450px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 10%;
+  color: #ffffff;
+}
+.hero-content {
+  max-width: 550px;
+  text-align: right;
+}
+.hero h1 {
+  text-transform: none !important;
+  font-size: 2.8rem;
+  margin: 0 0 15px;
+  line-height: 1.1;
+  font-weight: 800;
+  
+}
+.hero p { font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; }
+.hero .subtitle { font-size: 1.2rem; line-height: 1.4; opacity: 1; }
+
+/* CTA Button */
+.cta-btn {
+  border: 4px solid #D4AF37;
+  display: inline-block;
+  background: white;
+  color: #0a4a8a;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  
+  text-decoration: none;
+  margin: 0 0 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+
+/* Feature Cards (dark) */
+.features {
+  background: #0a4a8a;
+  padding: 20px 10% 50px;
+  text-align: center;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card-dark {
+  border: 4px solid #D4AF37;
+  background: #0a4a8a;
+  border-radius: 16px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  border: 4px solid #D4AF37;
+}
+.card-badge {
+  border: 4px solid #D4AF37;
+  background: white;
+  color: #0a4a8a;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border: 3px solid var(--gold);
+}
+.card-dark p {
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* Trust / Light sections */
+.section-light {
+  background: var(--light);
+  padding: 50px 10%;
+  text-align: center;
+  color: #ffffff !important;
+}
+.section-white {
+  background: var(--white);
+  padding: 60px 10%;
+  text-align: center;
+  color: #ffffff !important;
+}
+h2.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-weight: 900;
+  
+  color: #0a4a8a;
+}
+.trust-cards, .service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card-light {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border: 2px solid #0a4a8a;
+}
+.card-light h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #0a4a8a;
+}
+.card-light p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Before/After */
+.before-after {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.ba-item {
+  flex: 1;
+  min-width: 300px;
+  max-width: 45%;
+  text-align: center;
+}
+.ba-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.ba-item figcaption {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0a4a8a;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: #ffffff;
+  padding: 60px 10% 40px;
+  text-align: center;
+  border-top: 6px solid var(--gold);
+}
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+}
