@@ -36,7 +36,7 @@ def build():
 
         # Add to sitemap — skip utility slugs
         if slug not in ['footer', 'header', 'call-button', 'cookie-consent']:
-            url = f"{domain}/{slug}/" if slug else domain
+            url = domain if slug == 'index' else (f"{domain}/{slug}/" if slug else domain)
             sitemap_urls.append(url)
 
     # Write sitemap.xml
