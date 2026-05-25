@@ -1,9 +1,8 @@
-name: Build
+name: Build and Deploy
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +16,14 @@ jobs:
           python-version: '3.x'
       - name: Build site
         run: python3 build.py
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-build
-          path: build/
+      - name: Copy index fix
+        run: cp build/index/index.html build/index.html
+      - name: Deploy to Plesk via rsync
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H 217.154.33.12 >> ~/.ssh/known_hosts
+          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" build/ root@217.154.33.12:/var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/
