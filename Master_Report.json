@@ -1214,6 +1214,10 @@
     {
       "date": "2026-05-25",
       "change": "Replaced after image with rotating text boxes and trust badges on 980 service/location pages. Restored before image on all affected pages. Fixed index slug: replaced after image with rotating text, added before image, changed heading from 'Before and After House Clearances' to 'Our Clearances'. Sourced index body_content from live site. Fixed homepage_copy_mismatch by copying build/index/index.html to build/index.html after every build."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Configured GitHub Actions rsync deploy to Plesk. Server: 217.154.33.12. Deploy user: root. Path: /var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/. SSH key pair generated: ~/.ssh/ahc_deploy_key. Public key added to server authorized_keys. Private key stored as GitHub secret SSH_PRIVATE_KEY. deploy.yml updated from build-only to build-and-deploy. index copy fix (cp build/index/index.html build/index.html) added to workflow. Deployment now triggers automatically on push to main."
     }
   ],
   "known_issues": {
@@ -1232,7 +1236,9 @@
     "base_html_jekyll_tags": "base.html may contain Jekyll tags (site.baseurl, site.title, prepend filters, block/endblock) the engine cannot process \u2014 audit base.html before first build and replace all with plain values or {{ content }}",
     "missing_js_assets": "cookieconsent.umd.js and cookie-init.js may be referenced in base.html but not exist in assets/js/ \u2014 check and remove missing JS references from base.html",
     "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags.",
-    "homepage_copy_mismatch": "Local build: build/index/index.html contains correct homepage content, but build/index.html (the copy served by web server) is outdated/empty. Always re-copy after each build: cp build/index/index.html build/index.html. Observed on site_AHC-recovery 2026-05-25."
+    "homepage_copy_mismatch": "Engine builds index slug as build/index/index.html \u2014 must be copied to build/index.html after every build. Now handled automatically in deploy.yml via: cp build/index/index.html build/index.html",
+    "deploy_rsync": "rsync deploys build/ to root@217.154.33.12:/var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/ \u2014 SSH key stored as SSH_PRIVATE_KEY in GitHub secrets. Public key must be present in root@217.154.33.12 authorized_keys.",
+    "regex_dotall_danger": "Never use re.DOTALL with greedy .* when matching HTML divs in pages.json \u2014 it will consume multiple sibling divs. Always use exact string replace or a div-depth counter instead."
   },
   "assets": {
     "images_migrated": true,
@@ -1262,12 +1268,18 @@
     "merged_from": "site_AHC"
   },
   "deployment_workflow": {
-    "workflow_status": "not set up",
-    "github_secret": "SSH_PRIVATE_KEY (required when workflow is created)",
-    "notes": "Deployment to Plesk not configured; artifact uploads build/",
-    "github_actions_status": "build-only workflow \u2013 ready, runs on push",
+    "method": "GitHub Actions \u2014 rsync over SSH to Plesk on push to main",
+    "server": "217.154.33.12",
+    "deploy_user": "root",
+    "plesk_path": "/var/www/vhosts/cornwallauctionhouseclearance.co.uk/httpdocs/",
     "workflow_file": ".github/workflows/deploy.yml",
-    "git_initialized": true,
-    "git_remote": "https://github.com/vswebsitedesign-ctrl/site_AHC-recovery.git"
+    "ssh_key_local": "~/.ssh/ahc_deploy_key",
+    "ssh_key_public": "~/.ssh/ahc_deploy_key.pub",
+    "github_secret_name": "SSH_PRIVATE_KEY",
+    "secret_name_rule": "GitHub secret MUST be named SSH_PRIVATE_KEY \u2014 workflow references secrets.SSH_PRIVATE_KEY. Any other name causes Permission denied on rsync.",
+    "git_remote": "https://github.com/vswebsitedesign-ctrl/site_AHC-recovery.git",
+    "github_actions_status": "build and deploy workflow \u2014 runs on push to main",
+    "note": "Push to main triggers GitHub Actions \u2014 builds via build.py, copies build/index/index.html to build/index.html, rsyncs build/ to Plesk. Never append serve command to build command.",
+    "node_warning": "Node.js 20 deprecation warning in Actions \u2014 non-critical until September 2026"
   }
 }
