@@ -1162,6 +1162,58 @@
     {
       "date": "2026-05-25",
       "change": "Merged site_AHC into this site. Transferred 1 unique pages (slugs: ['']). site_AHC directory will be removed."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Fact-finding: homepage content exists in build/index/index.html but build/index.html is stale (empty). Recorded known_issue/homepage_copy_mismatch."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Refreshed 7 top-level pages from live site: ['about', 'contact', 'cookie-policy', 'service', 'index', 'privacy-policy', 'terms-and-conditions']"
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Copied assets from old Jekyll folders: 3 images, 1 CSS file (style.css). Assets now present in site/assets/."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Rebuilt after asset migration \u2013 CSS and images now in build/."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Injected header and footer from live site into base.html."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Added rotating text boxes and trust badges to service/house-clearance page; added cookie consent banner to base.html."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced after-img block with rotating text boxes and trust badges on 0 pages (rubbish-removal etc.). Added cookie banner."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced after image with rotating text boxes on 0 rubbish-removal pages."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced after\u2011image figure with rotating text + trust badges on 0 service pages. Cookie banner already present."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced after\u2011image figure with rotating text + trust badges on 1 pages (all pages with Before/After section)."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced entire \"Before and After\" section with \"Our Clearances\" + rotating text + trust badges on 1 pages."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Kept before image, replaced after image with rotating text + trust badges on 0 pages. Heading changed to \"Our Clearances\"."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Replaced after image with rotating text boxes and trust badges on 980 service/location pages. Restored before image on all affected pages. Fixed index slug: replaced after image with rotating text, added before image, changed heading from 'Before and After House Clearances' to 'Our Clearances'. Sourced index body_content from live site. Fixed homepage_copy_mismatch by copying build/index/index.html to build/index.html after every build."
     }
   ],
   "known_issues": {
@@ -1179,14 +1231,18 @@
     "homepage_slug": "Engine builds index slug as build/index/index.html \u2014 must be manually copied to build/index.html after every build: cp build/index/index.html build/index.html",
     "base_html_jekyll_tags": "base.html may contain Jekyll tags (site.baseurl, site.title, prepend filters, block/endblock) the engine cannot process \u2014 audit base.html before first build and replace all with plain values or {{ content }}",
     "missing_js_assets": "cookieconsent.umd.js and cookie-init.js may be referenced in base.html but not exist in assets/js/ \u2014 check and remove missing JS references from base.html",
-    "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags."
+    "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags.",
+    "homepage_copy_mismatch": "Local build: build/index/index.html contains correct homepage content, but build/index.html (the copy served by web server) is outdated/empty. Always re-copy after each build: cp build/index/index.html build/index.html. Observed on site_AHC-recovery 2026-05-25."
   },
   "assets": {
     "images_migrated": true,
-    "images_path": "assets/images",
-    "image_count": 0,
+    "images_path": "assets/img",
+    "image_count": 3,
     "migration_date": "2026-05-25",
-    "source": "/home/chubert/AHC-recovery/assets/images"
+    "source": "/home/chubert/AHC-recovery and /home/chubert/AHC",
+    "css_files": [
+      "assets/css/style.css"
+    ]
   },
   "migration": {
     "status": "complete",
@@ -1197,8 +1253,8 @@
   },
   "content_status": {
     "pages_built": "unknown \u2014 not yet audited",
-    "base_html_status": "fixed (Jekyll tags removed, {{ content }} injected)",
-    "assets_in_build": "unknown",
+    "base_html_status": "full layout with header/footer",
+    "assets_in_build": true,
     "last_build": "2026-05-25",
     "build_result": "SUCCESS",
     "live_crawl": "Crawled 2026-05-25: 0 added, 7 updated from https://cornwallauctionhouseclearance.co.uk",
