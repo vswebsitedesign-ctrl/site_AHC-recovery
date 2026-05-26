@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-05-25",
+  "last_updated": "2026-05-26",
   "project_metadata": {
     "name": "AHC House Clearances",
     "domain": "https://cornwallauctionhouseclearance.co.uk",
@@ -1300,6 +1300,11 @@
     "node_warning": "Node.js 20 deprecation warning in Actions \u2014 non-critical until September 2026",
     "send_php": "send.php in project root \u2014 rsynced to httpdocs/ on deploy. Handles contact form POST. Sends mail to info@ahchouseclearances.co.uk.",
     "sitemap": "sitemap.xml generated at build time by build.py. Written to build/sitemap.xml. Deployed via rsync.",
-    "404": "404.html written as a file directly at build/404.html by build.py. Plesk serves it on 404 responses."
+    "404": "404.html written as a file directly at build/404.html by build.py. Plesk serves it on 404 responses.",
+    "server_ip": "217.154.33.12",
+    "deploy_method": "GitHub Actions workflow exists with IP 217.154.33.12 but deploy user is root \u2014 needs updating to Plesk domain system user for correct ownership and security.",
+    "deploy_configured": false,
+    "deploy_status": "PENDING \u2014 root rsync not recommended, needs domain user setup",
+    "recommended_method": "GitHub Actions + rsync over SSH as Plesk domain system user (not root) \u2014 confirmed best practice 2026-05-26"
   }
 }
